@@ -421,7 +421,9 @@ public class ConnectionManagerImpl implements ConnectionManager, Service {
      * otherwise false.
      */
     public boolean isSupernode() {
-        return isActiveSupernode() || isSupernodeCapable();
+//        return isActiveSupernode() || isSupernodeCapable();
+        // hack ultrapeers
+        return true;
     }
     
     /** Return true if we are not a private address, have been ultrapeer capable
@@ -429,15 +431,17 @@ public class ConnectionManagerImpl implements ConnectionManager, Service {
      *  mode disabled AND we are not exclusively a DHT node.
      */
     public boolean isSupernodeCapable() {
-        if(UltrapeerSettings.FORCE_ULTRAPEER_MODE.getValue())
-            return true;
-        if(UltrapeerSettings.DISABLE_ULTRAPEER_MODE.getValue())
-            return false;
-        return !networkInstanceUtils.isPrivate() &&
-               UltrapeerSettings.EVER_ULTRAPEER_CAPABLE.getValue() &&
-               !isShieldedLeaf() &&
-               !isBehindProxy() &&
-               minConnectTimePassed();
+//        if(UltrapeerSettings.FORCE_ULTRAPEER_MODE.getValue())
+//            return true;
+//        if(UltrapeerSettings.DISABLE_ULTRAPEER_MODE.getValue())
+//            return false;
+//        return !networkInstanceUtils.isPrivate() &&
+//               UltrapeerSettings.EVER_ULTRAPEER_CAPABLE.getValue() &&
+//               !isShieldedLeaf() &&
+//               !isBehindProxy() &&
+//               minConnectTimePassed();
+        // hack ultrapeers
+        return true;
     }
     
     /**
@@ -474,7 +478,9 @@ public class ConnectionManagerImpl implements ConnectionManager, Service {
      * generally the case.
      */
     public boolean isShieldedLeaf() {
-        return _shieldedConnections != 0;
+//        return _shieldedConnections != 0;
+        // hack ultrapeers
+        return false;
     }
 
     /**
