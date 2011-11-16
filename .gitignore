@@ -1,0 +1,7 @@
+*.class
+*.jar
+.ivy2/
+.idea/
+/*~
+*.iml
+/Untitled-*
